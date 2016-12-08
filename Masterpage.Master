@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Masterpage.master.cs" Inherits="dbms.Masterpage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Tennis Pro Store</title>
+    <link runat="server" rel="shortcut icon" href="favicons/favicon.ico" />
+    <link runat="server" rel="icon" href="favicons/favicon.ico" type="image/ico" />
+     <script src="JavaScript/jquery-1.3.2.min.js"></script>
+    <link href="styles/style1.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function mainmenu() {
+            $(" #nav ul ").css({ display: "none" });
+
+            $(" #nav li").hover(function () {
+                $(this).find('ul:first').css({ visibility: "visible", display: "none" }).show(400);
+            }
+            , function () {
+                $(this).find('ul:first').css({ visibility: "hidden" });
+            });
+        }
+
+        $(document).ready(function () {
+            mainmenu();
+        });
+    </script>
+</head>
+
+    <body>
+    <form id="form1" runat="server">
+   <div id="wrapper">
+       <div id="banner">
+
+       </div>
+
+
+
+       <div id="navigation">
+           <ul id="nav">
+               <li><a href="home.aspx" runat="server">Home</a></li>
+               <li><a href="sample.aspx" runat="server">Products</a></li>
+               <li><a href="shop.aspx">Shop</a></li>
+               <li><a href="#">About</a></li>
+                <li><a href="#">Manage</a>
+                <ul>
+                   <li><a href="tennis_overview.aspx" runat="server">Products</a></li>
+                   <li><a href="admin.aspx" runat="server">Users</a></li>
+                   <li><a href="orders_list.aspx" runat="server">Orders</a></li>
+               </ul>
+
+                    </li>
+
+           </ul>
+           <div id="login" align="right">
+               <asp:Label ID="Label1" runat="server" Text="" ForeColor="#A5FE01"></asp:Label>
+               <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="#A5FE01" OnClick="LinkButton1_Click">LinkButton</asp:LinkButton>
+           </div>
+
+          <%-- <div id="login" align="right">
+               <asp:Label ID="Label1" runat="server" Text="" ForeColor="#A5FE01"></asp:Label>
+               <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="#A5FE01" OnClick="LinkButton1_Click">LinkButton</asp:LinkButton>
+           </div>--%>
+
+       </div>
+
+       <div id="content_area">
+
+           <asp:ContentPlaceHolder ID="contentplaceholder1" runat="server">
+               
+            </asp:ContentPlaceHolder>
+
+       </div>
+
+       <div id="footer">
+           <p style="font-family: 'Century Schoolbook'; font-weight: bold; color: #FFFFFF">All rights reserved.</p>
+       </div>
+   </div>
+    </form>
+</body>
+</html>
